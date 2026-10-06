@@ -1,0 +1,64 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+class time
+{
+	private:
+		int hours,minutes,second;
+	public:
+		time();
+		time(int,int,int);
+		void sum(time &,time &);
+		void putdata();
+		~time()
+		{
+			cout<<"destructor called here.."<<endl;
+		}
+
+};
+time::time()
+{
+	cout<<"constructor called without parameter"<<endl;
+	hours=0;
+	minutes=0;
+	second=0;
+}
+time::time(int h,int m,int s)
+{
+	cout<<"constructor called with parameter\n";
+	hours=h;
+	minutes=m;
+	second=s;
+}
+void time::sum(time &m1,time &m2)
+{
+
+	second=m1.second+m2.second;
+	minutes=second/60;
+	second=second%60;
+	minute=minutes+m1.minutes+m2.miutes;
+
+
+	hours=minutes/60;
+	minutes=minutes%60;
+	hours=hours+m1.hours+m2.hours;
+}
+void time::putdata()
+{
+	cout.precision(2);
+	cout.width(3);//rupees width set but paisa width not set
+	cout<<hours<<"hours and"<<minutes<<"minutes and"<<second<<"second"<<endl;
+}
+void main()
+{
+	clrscr();
+	time t1(5,45,45),t2(8,45,45),t3;
+	t3.sum(t1,t2);
+	cout<<"t1 time is";
+	t1.putdata();
+	cout<<"t2 time is";
+	t2.putdata();
+	cout<<"t3 time is";
+	t3.putdata();
+	getch();
+}

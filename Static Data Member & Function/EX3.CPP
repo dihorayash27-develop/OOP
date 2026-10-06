@@ -1,0 +1,78 @@
+#include<conio.h>
+#include<iostream.h>
+#include<stdio.h>
+#include<string.h>
+class Vowels
+{
+	private:
+		static int counter[10];
+		static char v[10];
+		char str[50];
+	public:
+		Vowels()//Default Constructor Call
+		{
+			cout<<"Enter the String:";
+			gets(str);
+		}
+		void cal_vowels();
+		static void find(char);
+		static void display();
+		~Vowels()
+		{
+			cout<<"Destructor is  Call..."<<endl;
+		}
+
+};
+
+int Vowels::counter[] = {0};
+
+char Vowels::v[10] = {'a','e','i','o','u','A','E','I','O','U'};
+
+void Vowels::find(char ch)
+{
+	for(int i=0; i<10; i++)
+	{
+		if(ch==v[i])
+		{
+			counter[i]++;
+			break;
+		}
+	}
+}
+void Vowels::cal_vowels()
+{
+
+	int i=0;
+	while(str[i]!=NULL)
+	{
+		Vowels::find(str[i]);
+		i++;
+	}
+}
+void Vowels::display()
+{
+	int i;
+	for(i=0; i<10; i++)
+	{
+		cout<<v[i]<<"="<<counter[i]<<endl;
+	}
+}
+void main()
+{
+	clrscr();
+	Vowels::display();
+
+	Vowels object_1;
+	Vowels object_2;
+
+	object_1.cal_vowels();
+	Vowels::display();
+
+	object_2.cal_vowels();
+
+	cout<<"Total Number of Vowels Are:"<<endl;
+	Vowels::display();
+	getch();
+
+}
+

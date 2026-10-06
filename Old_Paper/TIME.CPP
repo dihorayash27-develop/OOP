@@ -1,0 +1,65 @@
+#include<iostream.h>
+#include<conio.h>
+class Time
+{
+	private:
+		long int hrs,min,sec;
+	public:
+		Time();
+		Time(long int,long int,long int);
+		Time operator+(Time);
+		void display();
+
+};
+Time::Time()
+{
+	hrs = 0;
+	min = 0;
+	sec = 0;
+}
+Time::Time(long int a,long int b,long int c)
+{
+	hrs = a;
+	min = b;
+	sec = c;
+}
+Time Time::operator+(Time t)
+{
+	Time temp;
+	long int v1,v2;
+	long int tot;
+
+	v1 = 3600*hrs+60*min+sec;
+	v2 = 3600*t.hrs+60*t.min+t.sec;
+       //	cout<<"v1:"<<v1<<"v2:"<<v2<<endl;
+
+	tot = v1+v2;
+       //	cout<<"tot:"<<tot<<endl;
+	temp.hrs = tot/3600;
+	temp.min = (tot%3600)/60;
+	temp.sec = tot%60;
+	return temp;
+}
+void Time::display()
+{
+	cout<<"Hourse:"<<hrs<<endl;
+	cout<<"Minutes:"<<min<<endl;
+	cout<<"Second:"<<sec<<endl;
+}
+void main()
+{
+	clrscr();
+	Time t0,t1(3,45,10),t2(5,14,40);
+
+	cout<<"Object 1 Time:"<<endl<<endl;
+	t1.display();
+
+	cout<<endl<<"Object 2 Time:"<<endl<<endl;
+	t2.display();
+
+	t0 = t1+t2;
+
+	cout<<endl<<"Sum of these two object:"<<endl;
+	t0.display();
+	getch();
+}

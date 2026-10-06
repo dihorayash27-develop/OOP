@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<conio.h>
+class Weight
+{
+	private:
+
+		long int kg, gram;
+	public:
+
+		Weight()
+		{
+			cout<<"Default Constructor is called..."<<endl;
+			cout<<"Enter Value of Kg : ";
+			cin>>kg;
+			cout<<"Enter Value of Gram : ";
+			cin>>gram;
+		}
+
+		~Weight()
+		{
+			cout<<"Destructor is Called..."<<endl;
+		}
+
+		long int getkg()
+		{
+			return kg;
+		}
+
+		long int getgram()
+		{
+			return gram;
+		}
+
+
+};
+void main()
+{
+	clrscr();
+	Weight W1;
+	long int k, g, grm;
+	k=W1.getkg();
+	g=W1.getgram();
+
+	grm=(k*1000) + g;
+
+	cout<<"Cast Conversion Class to Basic..."<<endl;
+	cout<<"After Total Conversion, Total Gram : "<<grm<<endl;
+	getch();
+}

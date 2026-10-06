@@ -1,0 +1,60 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+class Value
+{
+	private:
+		int a;
+		double b;
+		char ch;
+	public:
+		Value(); //Default Constructor
+		Value(int,double,char); //Parameterized Constructor
+		void display(); //Simple member Function
+		~Value();
+
+};
+Value::Value(int m,double n=300.01, char c='x')
+{
+	cout<<"Constructor is Called With Parameters"<<endl;
+	a=m;
+	b=n;
+	ch=c;
+}
+Value::Value()
+{
+	cout<<"Constructor is Called whithout Parameters"<<endl;
+	a=0;
+	b=0.0;
+	ch='z';
+}
+void Value::display()
+{
+	cout.precision(2);
+	cout<<"integer Value is:"<<a<<endl;
+	cout<<"Double Value is:"<<b<<endl;
+	cout<<"Character Value is:"<<ch<<endl<<endl;
+}
+Value::~Value()
+{
+	cout<<"\Destructor Called..."<<endl;
+}
+void main()
+{
+	clrscr();
+	char str='T';
+
+	Value e;
+	e.display();
+
+	Value c(10,100.80,str);
+	c.display();
+
+	Value d(20,200.67,'B');
+	d.display();
+
+	Value f(30);
+	f.display();
+	getch();
+}
+

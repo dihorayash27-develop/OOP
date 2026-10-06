@@ -1,0 +1,38 @@
+#include<conio.h>
+#include<iostream.h>
+class time
+{
+		int hrs;
+		int mins;
+	public:
+		void display();
+		void operator =(int );
+};
+void time::display()
+{
+	cout<<"hours:"<<hrs<<endl;
+	cout<<"minutes:"<<mins<<endl;
+}
+void time::operator =(int t)
+{
+	cout<<"operator = overloading  and cast conversion....."<<endl;
+	hrs=t/60;
+	mins=t%60;
+}
+void main()
+{
+	clrscr();
+	time t1;
+	int duration;
+	cout<<"enter the value of time duration in minutes:";
+	cin>>duration;
+	cout<<"object t1 over-loaded equal to operator..."<<endl;
+
+	t1=duration;
+	t1.display();
+
+	cout<<"object t1 over-loadedd equal to operator second method..."<<endl;
+	t1.operator=(duration);
+	t1.display();
+	getch();
+}

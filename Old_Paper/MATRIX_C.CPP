@@ -1,0 +1,65 @@
+#include<iostream.h>
+#include<conio.h>
+class Matrix{
+	private:
+		int a[3][3];
+	public:
+		Matrix(){
+			cout<<"Constructor called:"<<endl;
+		}
+		void getdata();
+		int operator==(Matrix);
+		void display();
+		~Matrix(){
+			cout<<"Destructor called:"<<endl;
+		}
+};
+void Matrix::getdata(){
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			cout<<"Enter Matrix:["<<i<<"]["<<j<<"]:";
+			cin>>a[i][j];
+		}
+	}
+}
+void Matrix::display(){
+	for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			cout<<a[i][j]<<" " ;
+		}
+		cout<<endl;
+	}
+}
+int Matrix::operator==(Matrix temp){
+		for(int i=0;i<3;i++){
+		for(int j=0;j<3;j++){
+			if(temp.a[i][j] == a[i][j]){
+				return 1;
+			}
+			else{
+				return 0;
+				break;
+			}
+		}
+	}
+}
+void main(){
+	clrscr();
+	Matrix m1,m2;
+	cout<<"Enter 1st Matrix:"<<endl;
+	m1.getdata();
+	m1.display();
+
+	cout<<"Enter 2nd Matrix:"<<endl;
+	m2.getdata();
+	m2.display();
+
+	if(m1 == m2){
+		cout<<"Same";
+	}else{
+		cout<<"Not same";
+	}
+
+
+	getch();
+}

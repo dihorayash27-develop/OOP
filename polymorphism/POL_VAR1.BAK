@@ -1,0 +1,64 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+class B
+{
+	public:
+		void display()
+		{
+			cout<<"display base"<<endl;
+		}
+		virtual void show()
+		{
+			cout<<"show base"<<endl;
+		}
+		B()
+		{
+			cout<<"B constructor called here:"<<endl;
+		}
+		~B()
+		{
+			cout<<"\nbase class destructor calle here:"<<endl;
+		}
+};
+class D : public B
+{
+	public:
+		void display()
+		{
+			cout<<"display derived"<<endl;
+		}
+		void show()
+		{
+			cout<<"show derived.."<<endl;
+		}
+		D()
+		{
+			cout<<"D constructor call here.."<<endl;
+		}
+		~D()
+		{
+			cout<<"D destructor called here.."<<endl;
+		}
+};
+void main()
+{
+	clrscr();
+	B b;
+	printf("address of base object b is %u stored at %u\n",b,&b);
+	D d;
+	printf("addres of derived object d id %u stored at %u\n",d,&d);
+	B *bptr;
+	printf("address of base pointer bptr is %u stored at %u\n",bptr,&bptr);
+	cout<<"\n\nbptr points to base...."<<endl;
+	bptr=&b;
+	printf("content of base address bptr is %u\n",*bptr);
+	bptr->display();
+	bptr->show();
+	cout<<"\n\nbptr points to derived..."<<endl;
+	bptr=&d;
+	printf("content of derived address bptr is %u\n",*bptr);
+	bptr->display();
+	bptr->show();
+	getch();
+}

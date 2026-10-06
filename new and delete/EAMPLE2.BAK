@@ -1,0 +1,41 @@
+#include<iostream.h>
+#include<string.h>
+#include<conio.h>
+class student
+{
+	public:
+		char *name;
+		int age;
+
+		student(char *ptr,int a);
+		void display();
+		~student();
+};
+student::student(char *ptr,int a)
+{
+	cout<<"constructor called.."<<endl;
+	strcpy(name,ptr);
+	age=a;
+	cout<<"constructor called for"<<name<<endl;
+}
+student::~student()
+{
+	cout<<"destructor called for"<<name<<endl;
+}
+void student::display()
+{
+	cout<<"name:"<<name<<"age:"<<age<<endl;
+}
+void main()
+{
+	clrscr();
+	//dynamically create an array of objects
+	student *stud_ptr = new student[2]={{"ram",23},{"sita",21}};
+	cout<<"array of students:"<<endl;
+	for(int i=0;i<2;i++)
+	{
+		stud_ptr[i].display();
+	}
+	delete[] stud_ptr;//call destructior for all array object
+	getch();
+}

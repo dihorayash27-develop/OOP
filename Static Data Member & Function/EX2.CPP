@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+#include<iomanip.h>
+class Sample
+{
+	private:
+		static int count;
+	public:
+		Sample();
+		static void display();
+		~Sample();
+};
+int Sample::count=0; //Definition Outside The Class
+Sample::Sample()
+{
+	cout<<"Constructor Called..."<<++count<<endl;
+}
+void Sample::display()
+{
+	cout<<"Counter Value="<<count<<endl;
+}
+Sample::~Sample()
+{
+	cout<<"Destructor Counter Value:"<<count--<<endl;
+}
+void main()
+{
+	clrscr();
+	cout<<"Before The Object Created"<<endl;
+	Sample::display();
+
+	Sample obj1[3],obj2,obj3,obj4;
+	for(int i=0; i<3; i++)
+	{
+		cout<<"Size of Obj1["<<i<<"]="<<sizeof(obj1[i])<<endl;
+	}
+	cout<<"Size of Obj1 is:"<<sizeof(obj1)<<endl; //1+1=03
+	cout<<"Size of Obj2 is:"<<sizeof(obj2)<<endl;//Default Size is 1
+	cout<<"Size of Obj3 is:"<<sizeof(obj3)<<endl;//Default size is 1
+	cout<<"Size of Obj4 is:"<<sizeof(obj4)<<endl;//Default size is 1
+	cout<<"After The Object Created"<<endl;
+
+	Sample::display();
+	cout<<"Destructor Function Call..."<<endl;
+	getch();
+}

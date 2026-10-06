@@ -1,0 +1,86 @@
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+#include<math.h>
+
+class Index;
+
+class Human
+{
+	private:
+
+		double wkg, hinch;
+
+	public:
+
+		Human()
+		{
+			//cout<<"Human Class Default Constructor is Called..."<<endl;
+			wkg=0;
+			hinch=0;
+		}
+		Human(double k, double i)
+		{
+			//cout<<"Human Class Parameterised Constructor is Called to Assign Values..."<<endl;
+			wkg=k;
+			hinch=i;
+		}
+		void out()
+		{
+			cout<<"\n\nValues in W_KG : "<<wkg<<endl;
+			cout<<"\nValues in H_INCH : "<<hinch<<endl;
+		}
+		operator Index();
+		~Human()
+		{
+			//cout<<"\nHuman Class Destructor is Called...."<<endl;
+		}
+};
+
+class Index
+{
+	private:
+
+		double bmi;
+
+	public:
+
+		Index()
+		{
+			//cout<<"\nIndex Class Default Constructor is Called..."<<endl;
+		}
+		Index(double b)
+		{
+			//cout<<"\nIndex Class Parameterised Constructor is Called..."<<endl;
+			bmi=b;
+		}
+		void out()
+		{
+			cout<<"\nValues in BMI : "<<bmi<<endl;
+		}
+		~Index()
+		{
+			//cout<<"\n\nIndex Class Destructor is Called..."<<endl;
+		}
+};
+
+Human :: operator Index()
+{
+	cout<<"\n\n\t*****-----Human Class Type to => Index Class Type-----*****\n"<<endl;
+	double bm=wkg/((hinch * 0.0254)*(hinch * 0.0254));
+
+	return Index(bm);
+}
+
+void main()
+{
+	clrscr();
+
+	Human H1(80, 69);
+	Index I1;
+
+	I1=H1;
+	H1.out();
+	I1.out();
+	getch();
+}

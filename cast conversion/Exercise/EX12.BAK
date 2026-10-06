@@ -1,0 +1,99 @@
+#include<iostream.h>
+#include<conio.h>
+class binary;
+class decimal
+{
+	private:
+		long int dec;
+	public:
+		decimal()
+		{
+			cout<<"Decimal Constructor is Called."<<endl;
+			dec=0;
+		}
+		decimal(long int d)
+		{
+			cout<<"Decimal Parameterised Constructor is Called."<<endl;
+			dec=d;
+		}
+		operator binary();
+		void display()
+		{
+			cout<<"Decimal is:"<<dec<<endl;
+		}
+		~decimal()
+		{
+			cout<<"Decimal Destructor is Called."<<endl;
+		}
+
+};
+class binary
+{
+	private:
+		long int bin;
+	public:
+		binary()
+		{
+			cout<<"Binary Constructor is Called."<<endl;
+			bin=0;
+		}
+		binary(long int b)
+		{
+			cout<<"Binary Parameterised Constructor is Called."<<endl;
+
+			bin=b;
+		}
+		operator decimal();
+		void display()
+		{
+			cout<<"Binary is:"<<bin<<endl;
+		}
+		~binary()
+		{
+			cout<<"Binary Destructor is Called."<<endl;
+		}
+};
+decimal::operator binary()
+{
+	long int n=dec;
+	long int bin=0;
+	long int place=1;
+	while(n>0)
+	{
+		int rem=n%2;
+		bin=bin+rem*place;
+		place=place*10;
+		n=n/2;
+	}
+	return binary(bin);
+}
+binary::operator decimal()
+{
+	long int n=bin;
+	long int dec=0;
+	long int base=1;
+	while(n>0)
+	{
+		int  rem=n%10;
+		dec=dec+rem*base;
+		base=base*2;
+		n=n/10;
+	}
+	return decimal(dec);
+}
+void main()
+{
+	clrscr();
+	decimal d1,d2(100);
+	binary b1,b2(1100100);
+
+	b1=d2;
+	d2.display();
+	b1.display();
+
+	d1=b2;
+	b2.display();
+	d1.display();
+
+	getch();
+}

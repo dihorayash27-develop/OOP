@@ -1,0 +1,34 @@
+#include<iostream.h>
+#include<conio.h>
+class table
+{
+	private:
+		int n;
+
+	public:
+		void getdata()
+		{
+			cout<<"Enter The Any Number:";
+			cin>>n;
+		}
+		void putdata()
+		{
+			for(int i=1; i<=10; i++)
+			{
+				cout<<n<<"X"<<i<<"="<<i*n<<"\n";
+			}
+
+		}
+
+
+};
+void main()
+{
+	clrscr();
+
+	table t;
+	t.getdata();
+	t.putdata();
+	getch();
+
+}

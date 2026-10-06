@@ -1,0 +1,59 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Length
+{
+	private:
+
+		int m, c, mili, mil;
+
+
+	public:
+
+		Length()
+		{
+			cout<<"Default Constructor is Called..."<<endl;
+		}
+
+		Length(int a)
+		{
+			mil = a;
+		}
+
+		~Length()
+		{
+			cout<<"Destructor is Callled..."<<endl;
+		}
+
+		void operator ()
+		{
+			m=mil / 1000;
+			c=(mil - (m*1000)) / 10;
+			mili= mil - (m*1000) - (c*10);
+		}
+
+		void display()
+		{
+			cout<<"After Cast Conversion From Basic to  Class .... "<<endl;
+			cout<<"Value of Meter : "<<m<<endl;
+			cout<<"Value of Centimeter : "<<c<<endl;
+			cout<<"Value of Milimeter : "<<mili<<endl;
+		}
+
+};
+
+void main()
+{
+	clrscr();
+
+	int mil;
+	cout<<"Enter Total Value of Milimeter : ";
+	cin>>mil;
+
+	Length L1(mil);
+
+	L1.cal();
+	L1.display();
+
+	getch();
+}

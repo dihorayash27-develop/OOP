@@ -1,0 +1,27 @@
+#include<iostream.h>
+#include<conio.h>
+class oddeven
+{
+	private:
+		int no;
+	public:
+		void getdata()
+		{
+			cout<<"Enter The Number:";
+			cin>>no;
+
+		}
+		void putdata()
+		{
+			if(n%2==0)
+			{
+				cout<<"Even Number:"<<n;
+			}
+			else
+			{
+				cout<<"Odd Number:"<<n;
+			}
+
+		}
+
+};

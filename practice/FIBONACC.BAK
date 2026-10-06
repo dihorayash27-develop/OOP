@@ -1,0 +1,38 @@
+#include<iostream.h>
+#include<conio.h>
+class  fibonacci
+{
+	private:
+		int no,a,b,c;
+	public:
+		void getdata();
+		{
+			cout<<"Enter The No:";
+			cin>>no;
+
+		}
+		void calculation()
+		{
+			a=1;
+			for(int i=1; i<=no; i++)
+			{
+				cout<<" "<<a;
+				c=b;
+				b=a;
+				a=a+c;
+			}
+		}
+
+};
+//void fibonacci::getdata()
+
+//void fibonacci::calculation()
+
+void main()
+{
+	clrscr();
+	fibonacci f;
+	f.getdata();
+	f.calculation();
+	getch();
+}

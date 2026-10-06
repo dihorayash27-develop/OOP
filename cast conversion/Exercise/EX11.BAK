@@ -1,0 +1,91 @@
+#include<iostream.h>
+#include<conio.h>
+class smalldata;
+class bigdata
+{
+	private:
+		long mb,kb;
+	public:
+		bigdata()
+		{
+			cout<<"bigdata Constructor is Called."<<endl;
+			mb=0.0;
+			kb=0.0;
+		}
+		bigdata(long m,long k)
+		{
+			cout<<"Bigdata Parameterised Constructor is Called."<<endl;
+			mb=m;
+			kb=k;
+		}
+		operator smalldata();
+		void display()
+		{
+			cout<<"Mb is:"<<mb<<endl;
+			cout<<"KB is:"<<kb<<endl;
+		}
+		~bigdata()
+		{
+			cout<<"Bigdata Destructor is Called."<<endl;
+		}
+
+};
+class smalldata
+{
+	private:
+		long byte,bit;
+	public:
+		smalldata()
+		{
+			cout<<"Smalldata Constructor is Called."<<endl;
+			byte=0.0;
+			bit=0.0;
+		}
+		smalldata(long b,long bi)
+		{
+			cout<<"Smalldata Parameteried Constructor is Called."<<endl;
+			byte=b;
+			bit=bi;
+		}
+		operator bigdata();
+		void display()
+		{
+			cout<<"byte is:"<<byte<<endl;
+			cout<<"bit is:"<<bit<<endl;
+		}
+};
+bigdata::operator smalldata()
+{
+	long temp1,temp2;
+	cout<<"Bigdata ==> smalldata"<<endl;
+	temp1=mb*1048576;
+	temp2=kb*8192;
+	return smalldata(temp1,temp2);
+}
+smalldata::operator bigdata()
+{
+	long temp1,temp2;
+	cout<<"Smalldata ==> bigdata"<<endl;
+	temp1=byte/1048576;
+	temp2=bit/8192;
+	return bigdata(temp1,temp2);
+
+}
+void main()
+{
+	clrscr();
+	bigdata b1,b2(2,8);
+	smalldata s1,s2(2097152,65536);
+
+	s1=b2;
+	b2.display();
+	s1.display();
+
+
+	b1=s2;
+	s2.display();
+	b1.display();
+
+	getch();
+
+}

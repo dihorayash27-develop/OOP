@@ -1,0 +1,64 @@
+#include<conio.h>
+#include<iostream.h>
+class poly
+{
+	protected:int height,width;
+	public:void setval(int a,int b)
+		{
+			height=a;
+			width=b;
+		}
+		virtual float area()=0;
+		void printarea()
+		{
+			cout<<this->area()<<endl;
+		}
+		virtual ~poly()
+		{
+			cout<<"virtual poly destructor is cslled.."<<endl;
+		}
+};
+class rect:public poly
+{
+	public: rect()
+		{
+			cout<<"rect constructor called here"<<endl;
+		}
+		float area()
+		{
+			cout<<"class rect called.."<<endl;
+			cout<<"rect area calculated here"<<endl;
+			return(width*height);
+		}
+		~rect()
+		{
+			cout<<"rect destructor called.."<<endl;
+		}
+};
+class triangle:public poly
+{
+	public:float area()
+		{
+			cout<<"\nclass triangle called.."<<endl;
+			cout<<"triangle are calculated"<<endl;
+			return(width*height)/2.0;
+		}
+		~triangle()
+		{
+			cout<<"\ntriangle destructor calledd.."<<endl;
+		}
+};
+void main()
+{
+	clrscr();
+	rect r;
+	triangle t;
+	poly *list[2];
+	list[0]=&r;
+	list[1]=&t;
+	list[0]->setval(4,5);
+	list[0]->printarea();
+	list[1]->setval(5,5);
+	list[1]->printarea();
+	getch();
+}

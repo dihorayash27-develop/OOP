@@ -1,0 +1,62 @@
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+class point
+{
+	private:
+		int x1,x2,y1,y2;
+	public:
+		point(int a2,int a1,int b2,int b1)
+		{
+			cout<<"point Parameterised Constructor is Called."<<endl;
+
+			x2=a2;
+			x1=a1;
+			y2=b2;
+			y1=b1;
+		}
+		operator int();
+		void display()
+		{
+			cout<<"x1 is:"<<x1<<endl;
+			cout<<"x2 is:"<<x2<<endl;
+			cout<<"y1 is:"<<y1<<endl;
+			cout<<"y2 is:"<<y2<<endl;
+		}
+		~point()
+		{
+			cout<<"Point Destructor is Called."<<endl;
+		}
+};
+point::operator int()
+{
+	int temp;
+	cout<<"operator overloading and Type Casting:"<<endl;
+	temp=sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+	return (temp);
+
+}
+void main()
+{
+	clrscr();
+	int a1,a2,b1,b2,p;
+
+	cout<<"Enter The x1:";
+	cin>>a1;
+
+	cout<<"Enter The y1:";
+	cin>>b1;
+
+	cout<<"Enter The x2:";
+	cin>>a2;
+
+	cout<<"Enter The y2:";
+	cin>>b2;
+
+	point p1(a2,a1,b2,b1);
+	cout<<"Operator Overloaded"<<endl;
+	p=p1;
+	cout<<"Total Deistance is:"<<p<<endl;
+
+	getch();
+}

@@ -1,0 +1,139 @@
+<html>
+	<head>
+		<title>A5</title>
+	</head>
+	<body>
+		<table border="2" align="center">
+			<tr>
+				<th> <label> Text </label> </th>
+				<td> <input type="text" id="txt1" /> </td>
+			</tr>
+			<tr>
+				<th colspan="2"> 
+					<input type="button" Value="Special_Char" onclick="spchar()" />
+					<input type="button" Value="Space" onclick="spc()" />
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2"> 
+					<input type="button" Value="Vowel" onclick="vov()" />
+					<input type="button" Value="Constant" onclick="con()" />
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2"> 
+					<input type="button" Value="Number" onclick="num()" />
+					<input type="button" Value="Zero" onclick="zer()" />
+					<input type="button" Value="Clear" onclick="clr()" />
+				</th>
+			</tr>
+			<tr>
+				<th> Display </th>
+				<td> <label id="disp"> </label> </td>
+			</tr>
+			
+		</table>
+		
+		<script>
+			
+			function vov()
+			{
+				var txt = document.getElementById("txt1").value;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					if(txt[i] == 'A' || txt[i] == 'a' || txt[i] == 'E' || txt[i] == 'e' || txt[i] == 'I' || txt[i] == 'i' ||txt[i] == 'O' ||txt[i] == 'o' ||txt[i] == 'U' ||txt[i] == 'u')
+					{
+						document.getElementById("disp").innerHTML = document.getElementById("disp").innerHTML + txt[i];
+					}
+				}
+				
+			}
+			
+			function clr()
+			{
+				document.getElementById("disp").innerHTML = '';
+			}
+			
+			function spchar()
+			{
+				var txt = document.getElementById("txt1").value;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					if(txt[i] == '~' || txt[i] == '`' || txt[i] == '!' || txt[i] == '@' || txt[i] == '#' || txt[i] == '$' ||txt[i] == '^' ||txt[i] == '&' ||txt[i] == '(' ||txt[i] == ')'|| txt[i] == '_' ||txt[i] == '[' ||txt[i] == ']' ||txt[i] == '{' ||txt[i] == '}' ||txt[i] == '|' ||txt[i] == '?' ||txt[i] == ':' ||txt[i] == ';' ||txt[i] == '"' ||txt[i] == '<' ||txt[i] == '>' ||txt[i] == ',' ||txt[i] == '.')
+					{
+						document.getElementById("disp").innerHTML = document.getElementById("disp").innerHTML + txt[i];
+					}
+				}
+			}
+			
+			function num()
+			{
+				var txt = document.getElementById("txt1").value;
+				var x=0;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					if(txt[i] == '1'| txt[i] == '2' || txt[i] == '3' || txt[i] == '4' || txt[i] == '5' || txt[i] == '6' ||txt[i] == '7' ||txt[i] == '8' ||txt[i] == '9')
+					{
+						document.getElementById("disp").innerHTML = document.getElementById("disp").innerHTML + txt[i];
+						x++;
+					}
+				}
+				alert(" No Of Number : " + x);
+			}
+			
+			function zer()
+			{
+				var txt = document.getElementById("txt1").value;
+				var x=0;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					if(txt[i] == '0')
+					{
+							x++;
+					}
+				}
+				document.getElementById("disp").innerHTML=" No Of Zero : " + x;
+			}
+			
+			function spc()
+			{
+				var txt = document.getElementById("txt1").value;
+				var x=0;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					if(txt[i] == ' ')
+					{
+							x++;
+					}
+				}
+				document.getElementById("disp").innerHTML=" No Of Space : " + x;
+			}
+			
+			function con()
+			{
+				var txt = document.getElementById("txt1").value;
+				document.getElementById("disp").innerHTML = '';
+				for(let i=0; i<txt.length; i++)
+				{
+					/*if(txt[i] != 'A' && txt[i] != 'a' && txt[i] != 'E' && txt[i] != 'e' && txt[i] != 'I' && txt[i] != 'i' && txt[i] != 'O' && txt[i] != 'o' && txt[i] != 'U' && txt[i] != 'u')
+					{
+						if(txt[i] != '~' && txt[i] != '`' && txt[i] != '!' && txt[i] != '@' && txt[i] != '#' && txt[i] != '$' && txt[i] != '^' && txt[i] != '&' && txt[i] != '(' && txt[i] != ')'&& txt[i] != '_' && txt[i] != '[' && txt[i] != ']' && txt[i] != '{' && txt[i] != '}' && txt[i] != '|' && txt[i] != '?' && txt[i] != ':' &&txt[i] != ';' &&txt[i] != '"' && txt[i] != '<' && txt[i] != '>' && txt[i] != ',' && txt[i] != '.' && txt[i] != ' ' && txt[i] != '0' && txt[i] != '1'| txt[i] != '2' && txt[i] != '3' && txt[i] != '4' && txt[i] != '5' && txt[i] != '6' && txt[i] != '7' && txt[i] != '8' && txt[i] != '9')
+						{
+							document.getElementById("disp").innerHTML = document.getElementById("disp").innerHTML + txt[i];
+						}
+					}*/
+					if(txt[i] == 'B' ||txt[i] == 'b' || txt[i] == 'C' || txt[i] == 'c' || txt[i] == 'D' ||txt[i] == 'd' || txt[i] == 'F' ||txt[i] == 'f' || txt[i] == 'G' ||txt[i] == 'g' || txt[i] == 'H' ||txt[i] == 'h' || txt[i] == 'J' ||txt[i] == 'j' || txt[i] == 'K' ||txt[i] == 'k' || txt[i] == 'L' ||txt[i] == 'l' || txt[i] == 'M' ||txt[i] == 'm' || txt[i] == 'N' ||txt[i] == 'n' || txt[i] == 'P' ||txt[i] == 'p' || txt[i] == 'Q' ||txt[i] == 'q' || txt[i] == 'R' ||txt[i] == 'r' || txt[i] == 'S' ||txt[i] == 's' || txt[i] == 'T' ||txt[i] == 't' || txt[i] == 'V' ||txt[i] == 'v' || txt[i] == 'W' ||txt[i] == 'w' || txt[i] == 'X' ||txt[i] == 'x' || txt[i] == 'Y' ||txt[i] == 'y' || txt[i] == 'Z' ||txt[i] == 'z')
+					{
+						document.getElementById("disp").innerHTML = document.getElementById("disp").innerHTML + txt[i];
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>

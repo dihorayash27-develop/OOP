@@ -1,0 +1,54 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+class Fraction
+{
+	private:
+		float num; //Numerator
+		float  denom; //Denominator
+
+	public:
+		Fraction(); //Constructor Member function without Parameter
+		Fraction(float);//Constructor Member Function With One Parameter
+		Fraction(float,float);//Constructor Member Function With Two Parameter
+		~Fraction()//Destructor Member Function
+		{
+			cout<<"Fraction Destructor Called..."<<endl;
+		}
+		void div_display();//Normal Member  Function
+
+};
+Fraction::Fraction()
+{
+	cout<<"No Parameter Constructor Called..."<<endl;
+	num=0.0;
+	denom=1.0;
+}
+Fraction::Fraction(float n)
+{
+	cout<<"One Parameter Constructor Called..."<<endl;
+	num=n;
+	denom=1;
+}
+Fraction::Fraction(float n,float d)
+{
+	cout<<"Two Parameter Constructor Called..."<<endl;
+	num=n;
+	denom=d;
+}
+void Fraction::div_display()
+{
+       cout<<"Numerator Value is:"<<num<<endl;
+       cout<<"Denominator value is:"<<denom<<endl;
+       cout<<"Division Answer is:"<<num/denom<<endl<<endl;
+}
+void main()
+{
+	clrscr();
+	Fraction f1,f2(4.0),f3(5.0,3.0);
+	cout<<endl;
+	f1.div_display();
+	f2.div_display();
+	f3.div_display();
+	getch();
+}

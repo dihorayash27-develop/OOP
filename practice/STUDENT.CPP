@@ -1,0 +1,68 @@
+#include<iostream.h>
+#include<conio.h>
+class student
+{
+	private:
+		char name[10];
+		int rno,m1,m2,m3,total;
+		float per;
+	public:
+	      void getdata();
+	      void putdata();
+	      void calculation();
+
+};
+void student::getdata()
+{
+	cout<<"Enter The Rollno:";
+	cin>>rno;
+
+	cout<<"Enter The Name:";
+	cin>>name;
+
+	cout<<"Enter The Mark-1:";
+	cin>>m1;
+
+	cout<<"Enter The Mark-2:";
+	cin>>m2;
+
+	cout<<"Enter The Mark-3:";
+	cin>>m3;
+
+	cout<<endl;
+
+}
+void student::calculation()
+{
+	total=m1+m2+m3;
+	per=total/3;
+
+
+}
+void student::putdata()
+{
+	cout<<"RollNo is:"<<rno<<endl;
+	cout<<"Name is:"<<name<<endl;
+	cout<<"Mark-1:"<<m1<<endl;
+	cout<<"Mark-2:"<<m2<<endl;
+	cout<<"Mark-3:"<<m3<<endl;
+	cout<<"Total is:"<<total<<endl;
+	cout<<"percentage is:"<<per<<endl;
+
+	cout<<endl;
+
+}
+void main()
+{
+	clrscr();
+	student s1,s2;
+	s1.getdata();
+	s2.getdata();
+
+	s1.calculation();
+	s2.calculation();
+
+	s1.putdata();
+	s2.putdata();
+	getch();
+}

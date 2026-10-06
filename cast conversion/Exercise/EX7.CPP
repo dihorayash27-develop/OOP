@@ -1,0 +1,46 @@
+#include<iostream.h>
+#include<conio.h>
+class distance
+{
+	private:
+		float nm,m,yard;
+	public:
+		distance(float n1,float m1,float y1)
+		{
+			cout<<"With Parameter Constructor."<<endl;
+			nm=n1;
+			m=m1;
+			yard=y1;
+		}
+		operator float();//Class to Basic
+		~distance()
+		{
+			cout<<"Destructor is Called..."<<endl;
+		}
+};
+distance::operator float()
+{
+	cout<<"Class Type To Basic Type"<<endl;
+	return (nm*(1.15078*1760)+m*1760+yard);
+}
+void main()
+{
+	clrscr();
+	float nm,m,y,total;
+
+	cout<<"Enter Nautical Mile Value:";
+	cin>>nm;
+
+	cout<<"Enter Mile Value:";
+	cin>>m;
+
+	cout<<"Enter Yard Value:";
+	cin>>y;
+
+	distance d1(nm,m,y);
+	cout<<"Object D1 Overloaded Assignmet operator..."<<endl;
+	total=d1;
+	cout<<"Total Distance is:"<<total<<endl;
+
+	getch();
+}

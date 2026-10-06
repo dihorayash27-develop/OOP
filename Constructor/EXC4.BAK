@@ -1,0 +1,58 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+#include<string.h>
+class Item{
+
+	private:
+		int item_no;
+		char item_name[20];
+	public:
+		Item()
+		{
+			cout<<"Constructor Without Paramters"<<endl;
+
+		}
+
+
+		Item(int a,char name[20])
+		{
+			cout<<"Constructor With Two Parameters"<<endl;
+			item_no=a;
+			strcpy(item_name,name);
+		}
+
+		Item(Item &x)
+		{
+			cout<<"Copy Constructor"<<endl;
+			item_no=x.item_no;
+			strcpy(item_name,x.item_name);
+		}
+		void display()
+		{
+			cout<<item_no<<setw(10)<<item_name<<end;
+		}
+
+		~Item()
+		{
+			cout<<"Destructor Called..."<<endl;
+		}
+};
+void main()
+{
+	clrscr();
+
+	Item a(100,"Ram");
+	cout<<"Object a==>";
+	a.display();
+
+	Item b(a);
+	cout<<"Object b==>";
+	b.display();
+
+	Item c=a;
+	cout<<"Object C==>";
+	c.display();
+	getch();
+
+}

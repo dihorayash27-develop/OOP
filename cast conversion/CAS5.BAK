@@ -1,0 +1,76 @@
+#include<conio.h>
+#include<iostream.h>
+class farenheit;
+class degree
+{
+	private:
+		float d;
+	public:
+		degree(float a)
+		{
+			cout<<"degree constructor called.."<< endl;
+			d=a;
+		}
+		degree()
+		{
+			cout<<"degree constructor called(without)..."<<endl;
+			d=0.0;
+		}
+		~degree()
+		{
+			cout<<"degree destructor called.."<<endl;
+		}
+		friend void exchange(degree &,farenheit &);
+		friend void out(degree &,farenheit &);
+
+};
+class farenheit
+{
+	private:
+		float f;
+	public:
+		farenheit(float a)
+		{
+			cout<<"farenheit constructor called"<<endl;
+			f=a;
+		}
+		farenheit()
+		{
+			cout<<"farenheit constructor (without).."<<endl;
+			f=0.0;
+		}
+		friend void exchange(degree &,farenheit &);
+		friend void out(degree &,farenheit &);
+		~farenheit()
+		{
+			cout<<"farenheit destructor called.."<<endl;
+		}
+
+};
+void exchange(degree &D,farenheit &F)
+{
+	if(D.d==0.0)
+		D.d=(5.0/9.0)*(F.f-32);
+	else
+		F.f=(9*D.d/5.0)+32;
+}
+void out(degree &D,farenheit &F)
+{
+	cout<<"degree==>farenheit"<<endl;
+	cout<<"farenheit value is "<<F.f<<endl;
+	cout<<"farenheit ==>degree"<<endl;
+	cout<<"degree value is"<<D.d<<endl;
+}
+void main()
+{
+	clrscr();
+	degree d1,d2(-40);
+	farenheit f1,f2(50);
+
+	exchange(d2,f1);
+	exchange(d1,f2);
+	out(d1,f2);
+	getch();
+}
+
+

@@ -1,0 +1,51 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Money
+{
+	private:
+
+		long int rupees, paisa;
+
+	public:
+
+		Money()
+		{
+			cout<<"Default Money Constructor is Callled to Get Values : "<<endl;
+			cout<<"Enter Value for Rupees : ";
+			cin>>rupees;
+			cout<<"Enter Value For Paisa : ";
+			cin>>paisa;
+		}
+
+		~Money()
+		{
+			cout<<"Money Destructor is Called..."<<endl;
+		}
+
+		long int getrs()
+		{
+			return rupees;
+		}
+
+		long int getp()
+		{
+			return paisa;
+		}
+
+};
+
+void main()
+{
+	clrscr();
+	Money M1;
+	long int paisa;
+
+	cout<<"......After Class Money Type to Basic Type Integer......"<<endl;
+
+	paisa=(M1.getrs()*100) + M1.getp();
+
+	cout<<"Total Value in Paisa : "<<paisa;
+
+	getch();
+}

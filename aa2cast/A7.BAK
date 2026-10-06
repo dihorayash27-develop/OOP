@@ -1,0 +1,57 @@
+#include<iostream.h>
+#include<conio.h>
+
+class Distance
+{
+	private:
+
+		long double n_m, m, yard;
+
+	public:
+
+		Distance()
+		{
+			cout<<"Default Distance Constructor is Callled to Get Values  "<<endl;
+			cout<<"Enter Distance in Nautical Mile : ";
+			cin>>n_m;
+			cout<<"Enter Distance in Mile : ";
+			cin>>m;
+			cout<<"Enter Distance in Yard : ";
+			cin>>yard;
+		}
+
+		~Distance()
+		{
+			cout<<"Distance Destructor is Called..."<<endl;
+		}
+
+		long double getn_m()
+		{
+			return n_m;
+		}
+
+		long double getm()
+		{
+			return m;
+		}
+
+		long double getyard()
+		{
+			return yard;
+		}
+};
+
+void main()
+{
+	clrscr();
+	Distance D1;
+	long doublle yard;
+
+	cout<<"...............After Class Distance Type to Basic Type Integer.................."<<endl;
+
+	yard=D1.getn_m() * (1.15078*1760) + D1.getm()*1760 + D1.getyard();
+
+	cout<<"Total Distance in yard : "<<yard;
+
+	getch();
+}

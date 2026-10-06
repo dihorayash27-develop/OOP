@@ -1,0 +1,47 @@
+#include<iostream.h>
+#include<conio.h>
+class Length
+{
+	private:
+		int m,c,mili;
+	public:
+		Length()
+		{
+			cout<<"enter value of meter:";
+			cin>>m;
+			cout<<"enter value of centimeter:";
+			cin>>c;
+			cout<<"enter value of milimeter:";
+			cin>>mili;
+		}
+		~Length()
+		{
+			cout<<"destructor is called.."<<endl;
+		}
+		int getm()
+		{
+			return m;
+		}
+		int getc()
+		{
+			return c;
+		}
+		int getmili()
+		{
+			return mili;
+		}
+};
+void main()
+{
+	clrscr();
+	Length L1;
+	int m,c,mili,mil;
+	m=L1.getm();
+	c=L1.getc();
+	mili=L1.getmili();
+	mil=(m*1000)+(c*10)+mili;
+	cout<<"after cast conversion from class to basic:"<<endl;
+	cout<<"total milimeter:"<<mil;
+
+	getch();
+}

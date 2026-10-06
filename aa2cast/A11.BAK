@@ -1,0 +1,115 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<iomanip.h>
+
+
+class Big_Data;
+
+class Small_Data
+{
+	private:
+
+		long byte,bit;
+
+	public:
+
+		Small_Data()
+		{
+		      //cout<<"Small_Data Default Class Constructor is Called..."<<endl;
+		      byte=0;
+		      bit=0;
+		}
+		Small_Data(long b1,long bt1)
+		{
+			//cout<<"Small_Data Constructor is Called to Assign Values..."<<endl;
+			byte=b1;
+			bit=bt1;
+		}
+
+		operator Big_Data();
+
+		void out()
+		{
+			//cout<<"\n\n+++++++++++++Small_Data Class Values..."<<endl;
+			cout<<"\nValues of BYTE : "<<byte;
+			cout<<"\nValues of BIT : "<<bit;
+		}
+		~Small_Data()
+		{
+			//cout<<"Small_Data Class Destructor is Called..."<<endl;
+		}
+
+
+};
+
+class Big_Data
+{
+	private:
+
+		long mb,kb;
+
+	public:
+
+		Big_Data()
+		{
+			//cout<<"Big_Data Default Class Constructor is Called..."<<endl;
+			mb=0;
+			kb=0;
+		}
+		Big_Data(long mb1,long kb1)
+		{
+			//cout<<"Big_Data Class Constructor is Called to Assign Value..."<<endl;
+			mb=mb1;
+			kb=kb1;
+		}
+		operator Small_Data()
+		{
+			cout<<"\n\n/*/*/*/*/*/*Convert from Big_Data => to Small_Data"<<endl;
+			long t1,t2;
+			t1=mb*1048576;
+			t2=kb*8192;
+			//cout<<"T1 :"<<t1<<endl;
+			//cout<<"T2 : "<<t2<<endl;
+			//getch();
+			return Small_Data(t1,t2);
+		}
+		void out()
+		{
+			//cout<<"\n\n************Big_Data Class Values...";
+			cout<<"\nValue of MB : "<<mb;
+			cout<<"\nValue of KB : "<<kb;
+		}
+		~Big_Data()
+		{
+			//cout<<"Big_Data Class Destructor is Called..."<<endl;
+		}
+};
+
+Small_Data :: operator Big_Data()
+{
+	long at1, at2;
+	cout<<"\n+/+/+/+/+/+/+/+/Convert From Small_Data => to Big_Data..."<<endl;
+	at1=(byte/1048576);
+	at2=(bit/8192);
+	return Big_Data(at1,at2);
+
+}
+
+void main()
+{
+	clrscr();
+	Small_Data SD1(2097152,65536), SD2;
+	Big_Data BD1(2,8), BD2;
+	SD2=BD1;
+	BD1.out();
+	SD2.out();
+       //	SD1.out()
+	cout<<endl;
+
+	BD2=SD1;
+
+	SD1.out();
+	BD2.out();
+	getch();
+}

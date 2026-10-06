@@ -1,0 +1,91 @@
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+class binary;
+class octal
+{
+	private:
+		long int oct;
+	public:
+		octal()
+		{
+			cout<<"Octal Constructor is Called."<<endl;
+			oct=0;
+		}
+		octal(long int o)
+		{
+			cout<<"Ocatal Parameterised Constructor is Called."<<endl;
+			oct=o;
+		}
+		operator binary();
+		void display()
+		{
+			cout<<"Octal is:"<<oct<<endl;
+		}
+		~octal()
+		{
+			cout<<"Octal Destructor is Called."<<endl;
+		}
+};
+class binary
+{
+	private:
+		long int bin;
+	public:
+		binary()
+		{
+			cout<<"Binary Constructor is Called."<<endl;
+			bin=0;
+		}
+		binary(long int b)
+		{
+			cout<<"Binart Parameterised Constructor is Called."<<endl;
+			bin=b;
+		}
+		operator octal();
+		void display()
+		{
+			cout<<"Binary is:"<<bin<<endl;
+		}
+		~binary()
+		{
+			cout<<"Binary Destructor is Called."<<endl;
+		}
+};
+binary::operator octal()
+{
+	long
+}
+octal::operator binary()
+{
+	long int n=oct;
+	long int dec=0;
+	long int base=1;
+	while(n>0)
+	{
+		int rem=n%10;
+		dec=dec+rem*base;
+		base=base*2;
+		n=n/10;
+	}
+	return binary(dec);
+}
+void main()
+
+{
+	clrscr();
+	octal o1,o2(100);
+	binary b1,b2(1000000);
+
+
+	b1=o2;
+	o2.display();
+	b1.display();
+
+
+	o1=b2;
+	b2.display();
+	o1.display();
+
+	getch();
+}

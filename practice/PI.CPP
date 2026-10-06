@@ -1,0 +1,32 @@
+#include<iostream.h>
+#include<conio.h>
+#define pi 3.14
+class area
+{
+	private:
+		int r;
+	public:
+		void getdata()
+		{
+			cout<<"Enter Radius:";
+			cin>>r;
+		}
+		void putdata()
+		{
+			float c;
+			c=pi*r*r;
+			cout<<"Area Of Circle is:"<<c;
+
+		}
+
+
+};
+void main()
+{
+	clrscr();
+	area a;
+	a.getdata();
+	a.putdata();
+	getch();
+
+}

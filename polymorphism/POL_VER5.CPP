@@ -1,0 +1,87 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<iomanip.h>
+class shape
+{
+	protected:int area;
+		static int i;
+	public:shape()
+		{
+			cout<<"shape constrctor called.."<<++i<<endl;
+		}
+		virtual void calculate()
+		{
+			cout<<"\tarea of your shape:"<<endl;
+		}
+		virtual ~shape()
+		{
+			cout<<"\tshape destructor called here"<<--i<<endl;
+		}
+};
+int shape::i=0;
+class rectangle:public shape
+{
+	private:int width,height;
+	public:rectangle()
+		{
+			cout<<" rectangle contrucotr called..."<<++i<<endl;
+		}
+		~rectangle()
+		{
+			cout<<"\t rectangle destructor called.."<<--i<<endl;
+		}
+		void calculate();
+};
+void rectangle::calculate()
+{
+	cout<<"enter width of rectangle shape:";
+	cin>>width;
+	cout<<"enter height of rectangle shape:";
+	cin>>height;
+	area=height*width;
+	cout<<"area of the rectangle shape:"<<area<<endl;
+}
+class square:public shape
+{
+	private:int side;
+	public:square()
+		{
+			cout<<"squere constructor called.."<<++i<<endl;
+		}
+		void calculate();
+		~square()
+		{
+			cout<<"\t square destructor is called here..."<<--i<<endl;
+		}
+};
+void square::calculate()
+{
+	cout<<"enter the side of square shape is:";
+	cin>>side;
+	area=side*side;
+	cout<<"area of the square is:"<<area<<endl;
+}
+void main()
+{
+	clrscr();
+	shape *ptr;
+	shape obj;
+	ptr=&obj;
+	ptr->calculate();
+
+	rectangle r;
+	ptr=&r;
+	ptr->calculate();
+
+	square s;
+	ptr=&s;
+	ptr->calculate();
+
+	cout<<"size of shape object is:"<<sizeof(obj)<<endl;
+	cout<<"size of rectangle object is:"<<sizeof(r)<<endl;
+	cout<<"size of square object is:"<<sizeof(s)<<endl;
+	getch();
+}
+
+

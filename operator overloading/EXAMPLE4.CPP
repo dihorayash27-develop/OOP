@@ -1,0 +1,83 @@
+#include<conio.h>
+#include<iostream.h>
+class matrix
+{
+	private:
+		int a[2][2];
+	public:
+		matrix();
+		int operator==(matrix);
+		matrix(const matrix &);
+		~matrix()
+		{
+			cout<<"\t destrucotr called.."<<endl;
+		}
+};
+void matrix::matrix()
+{
+	int i,j;
+	cout<<"constructor called with out parameter.."<<endl;
+	for(i=0;i<2;i++)
+	{
+		for(j=0;j<2;j++)
+		{
+			cout<<"enter["<<i<<"]["<<j<<"]=";
+			cin>>a[i][j];
+		}
+	}
+}
+matrix::matrix(const matrix &m)
+{
+
+	int i,j;
+	cout<<"copy constructor called.."<<endl;
+	for(i=0;i<2;i++)
+	{
+		for(j=0;j<2;j++)
+		{
+			this->a[i][j]=m.a[i][j];
+		}
+	}
+}
+int matrix::operator ==(matrix m)
+{
+	int i,j,flag=0;
+	for(i=0;i<2;i++)
+	{
+		for(j=0;j<2;j++)
+		{
+			if(a[i][j]==m.a[i][j])
+				flag=1;
+			else
+			{
+				flag=0;
+				break;
+			}
+		}
+	}
+	if(flag==1)
+		return(1);
+	else
+		return(0);
+}
+void main()
+{
+	clrscr();
+	cout<<"enter the content of matrix A..."<<endl;
+	matrix o1;
+	cout<<"enter the content of matrix B..."<<endl;
+	matrix o2;
+	cout<<"==operator is overloaded.."<<endl;
+	if(o1==o2)
+		cout<<"matrix A ans B are equal"<<endl;
+	else
+		cout<<"matrix A and B are not equal"<<endl;
+
+	cout<<"==operator overloaded by second method.."<<endl;
+	if(o1.operator==(o2))
+		cout<<"matrix A and B are equal"<<endl;
+	else
+		cout<<"matrix A and B are not equal"<<endl;
+	getch();
+
+}

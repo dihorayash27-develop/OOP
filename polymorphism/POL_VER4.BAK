@@ -1,0 +1,90 @@
+#include<conio.h>
+#include<stdio.h>
+#include<iostream.h>
+#include<string.h>
+#include<iomanip.h>
+class employee
+{
+	protected:float emp_no,basic;
+		char name[10];
+	public:employee();
+		void put_emp();
+		virtual void display()=0;
+		virtual ~employee()
+		{
+			cout<<"virtual employee destructor called here.."<<endl;
+		}
+};
+employee::employee()
+{
+	cout<<"employee constructor call.."<<endl;
+	cout<<"enter the emp_no & emp_name";
+	cin>>emp_no>>name;
+	cout<<"enter the basic salary:";
+	cin>>basic;
+}
+void employee::put_emp()
+{
+
+	cout<<setw(7)<<emp_no<<setw(7)<<name<<setw(7)<<basic;
+}
+
+class da_hra:virtual public employee
+{
+	protected:float da_amt,hra_amt;
+	public:da_hra(float d,float h)
+		{
+			cout<<"da_hra constructor called here.."<<endl;
+			da_amt=(basic*d);
+			hra_amt=(basic*h);
+		}
+		~da_hra()
+		{
+			cout<<"da_hrm destructor called here.."<<endl;
+		}
+};
+class allowance:public virtual employee
+{
+	protected:float tran_allow,exam_allow;
+	public:allowance(int t,int e)
+		{
+			cout<<"allowance constructor called here..."<<endl;
+			tran_allow=t;
+			exam_allow=e;
+		}
+		~allowance()
+		{
+			cout<<"allowance destructor called here..."<<endl;
+		}
+};
+class salary:public da_hra,public allowance
+{
+	private:float total;
+	public:salary(float d,float h,int t,int e):
+		employee(),da_hra(d,h),allowance(t,e)
+		{
+			cout<<"salary constructor called here.."<<endl;
+		}
+		void display();
+		~salary()
+		{
+			cout<<"salary destructor called here..."<<endl;
+		}
+};
+void salary::display()
+{
+	total=basic+da_amt+tran_allow+exam_allow;
+	put_emp();
+
+	cout<<setw(7)<<tran_allow<<setw(7)<<exam_allow<<endl;
+	cout<<"total salary:"<<total<<endl;
+}
+void main()
+{
+	clrscr();
+	salary s1(0.50,0.15,400,200);
+	employee *ptr;
+	ptr=&s1;
+	ptr->display();
+	getch();
+}

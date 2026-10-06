@@ -1,0 +1,39 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+class Sample
+{
+	private:
+		int i; //Data Member
+	public: //Member Function
+		Sample(); //Constructor Member Function
+		void display(); //Normal Member Function
+		~Sample(); //Destructor Member Function
+};
+Sample::Sample()
+{
+	cout<<"Constructor is Called Without Parameters"<<endl;
+	cout<<"Enter The Value of i:";
+	cin>>i;
+}
+void Sample::display()
+{
+	cout<<"The  Value of i is:"<<i<<endl;
+}
+Sample::~Sample()
+{
+	cout<<"Destructor is Called..."<<endl;
+}
+void main()
+{
+	clrscr();
+
+	Sample obj[3];
+
+	for(int i=0; i<3; i++)
+	{
+		obj[i].display();
+	}
+
+	getch();
+}

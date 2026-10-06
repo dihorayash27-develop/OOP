@@ -1,0 +1,86 @@
+#include<iostream.h>
+#include<conio.h>
+class celsius;
+class kelvin
+{
+	private:
+		float k;
+	public:
+		kelvin()
+		{
+			cout<<"kelvin Constructor is Called."<<endl;
+			k=0.0;
+		}
+		kelvin(float kel)
+		{
+			cout<<"kelvin parameterised Constructor is Called."<<endl;
+			k=kel;
+		}
+		operator celsius();
+		void display()
+		{
+			cout<<"Kelvin is:"<<k<<endl;
+		}
+		~kelvin()
+		{
+			cout<<"Kelvin Destructor is Called."<<endl;
+		}
+};
+class celsius
+{
+	private:
+		float c;
+	public:
+		celsius()
+		{
+			cout<<"Celsius Constructor is Called,"<<endl;
+			c=0.0;
+		}
+		celsius(float cel)
+		{
+			cout<<"Celsius Parameterised Constructor is Called."<<endl;
+			c=cel;
+		}
+		operator kelvin();
+		void display()
+		{
+			cout<<"Celsius is:"<<c<<endl;
+		}
+		~celsius()
+		{
+		       cout<<"Celsius Destructor is Called."<<endl;
+		}
+};
+kelvin::operator celsius()
+{
+	float temp;
+	cout<<"kelvin ==> Celsius."<<endl;
+	temp=(k-273.15);
+	return celsius(temp);
+}
+celsius::operator kelvin()
+{
+	float temp;
+	cout<<"Celsius ==> kelvin."<<endl;
+	temp=c+273.15;
+	return kelvin(temp);
+}
+void main()
+{
+	clrscr();
+	kelvin k1,k2(3.3);
+	celsius c1,c2(3.3);
+
+	k1=c2;
+	k1.display();
+	c2.display();
+
+	c1=k2;
+	k2.display();
+	c1.display();
+
+	getch();
+
+
+
+}

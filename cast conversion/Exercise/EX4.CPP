@@ -1,0 +1,39 @@
+#include<iostream.h>
+#include<conio.h>
+class length
+{
+	private:
+		int m,c,mili;
+	public:
+		void display();
+		void operator =(int);
+};
+void length::operator =(int l)
+{
+	cout<<"Oeprator = Overload And Cast Conversion"<<endl;
+	m=l/1000;
+	l=l%1000;
+	c=l/10;
+	mili=l%10;
+}
+void length::display()
+{
+	cout<<"Meter is:"<<m<<endl;
+	cout<<"Centimeter is:"<<c<<endl;
+	cout<<"Milimeter is:"<<mili<<endl;
+
+}
+void main()
+{
+	clrscr();
+	length l;
+	int length;
+
+	cout<<"Enter Total Length:";
+	cin>>length;
+
+	cout<<"Object l Overload Equal To operator..."<<endl;
+	l= length;
+	l.display();
+	getch();
+}

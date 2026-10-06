@@ -1,0 +1,55 @@
+#include<iostream.h>
+#include<conio.h>
+class weight
+{
+	private:
+		int  kg,gram;
+	public:
+		weight()
+		{
+			kg=0;
+			gram=0;
+		}
+};
+/*{
+	private:
+		int kg,gram;
+	public:
+		weight() //without Parameterised Constructor
+		{
+			kg=0;
+			gram=0;
+		}
+		weight(int k,int g) //with Parameterised Constructor
+		{
+			kg=k;
+			gram=g;
+		}
+		operator int();
+		~weight()
+		{
+			cout<<"Destructor is Called..."<<endl;
+		}
+};
+weight::operator int()
+{
+	return(kg*1000+gram);
+}
+void main()
+{
+	clrscr();
+	int k,g,total;
+
+	cout<<"Enter The Kilo:";
+	cin>>k;
+
+	cout<<"Enter Gram:";
+	cin>>g;
+
+	weight w1(k,g);
+	cout<<"Object W1 Over-Load Assignment Operator..."<<endl;
+	total=w1;
+	cout<<"Total Weight is:"<<total<<endl;
+	getch();
+}
+*/

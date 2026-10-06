@@ -1,0 +1,64 @@
+#include<conio.h>
+#include<iostream.h>
+#include<iomanip.h>
+class Sales
+{
+	private:
+		char month[10]; //Name of the Month
+		int sal_u; //Sales in the unit for given month
+		float sal_r,sal_a;
+		static int unit_tot;
+		static float amt_tot;
+	public:
+		void getdata();
+		void find_tot();
+		static void display();
+
+};
+int Sales::unit_tot = 0;
+float Sales::amt_tot = 0.0;
+
+void Sales::getdata()
+{
+	cout<<"Month Name:";
+	cin>>month;
+
+	cout<<"Number of Units Sales:";
+	cin>>sal_u;
+
+	cout<<"Sales Rate Per Unit:";
+	cin>>sal_r;
+}
+void Sales::find_tot()
+{
+	cout<<setw(15)<<month<<setw(7)<<sal_u<<setw(7)<<sal_r;
+	sal_a=sal_u * sal_r;
+	cout<<setw(7)<<sal_a<<endl;
+	unit_tot = unit_tot + sal_u;
+	amt_tot = amt_tot + sal_a;
+}
+void Sales::display()
+{
+	cout<<"\t====================================="<<endl;
+	cout<<setw(15)<<"Total"<<setw(7)<<unit_tot<<setw(15)<<amt_tot<<endl;
+	cout<<"\t====================================="<<endl;
+}
+void main()
+{
+	clrscr();
+	Sales objs[3];
+	int i;
+
+	for(i=0; i<3; i++)
+	{
+		objs[i].getdata();
+	}
+
+	for(i=0; i<3; i++)
+	{
+		objs[i].find_tot();
+	}
+
+	Sales::display();
+	getch();
+}

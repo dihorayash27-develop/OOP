@@ -1,0 +1,57 @@
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+class time
+{
+	private:
+		int h,m;
+	public:
+		time();
+		time(int,int);
+		time operator -(time &);
+		void display();
+		~time()
+		{
+			cout<<"destructor is called here..."<<endl;
+		}
+};
+time::time()
+{
+	cout<<"constructore called with out parameters here.."<<endl;
+	h=0;
+	m=0;
+}
+time::time(int hour,int min)
+{
+	cout<<"constructor called with two parameter here.."<<endl;
+	h=hour;
+	m=min;
+
+}
+time time::operator -(time &c)
+{
+	time temp;
+	int t1_value,t2_value,t_value;
+	t1_value=h*60+m;
+	t2_value=c.h*60+c.m;
+	t_value=t1_value-t2_value;
+	temp.h=t_value/60;
+	temp.m=t_value%60;
+
+	return temp;
+}
+void time::display()
+{
+	cout<<"hours:"<<h<<'\t';
+	cout<<"min:"<<m<<endl;
+}
+void main()
+{
+	clrscr();
+	time t1(0,53),t2(1,28),t3;
+	t3=t1-t2;
+	t1.display();
+	t2.display();
+	t3.display();
+	getch();
+}

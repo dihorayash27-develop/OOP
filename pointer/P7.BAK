@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	clrscr();
+
+	float *ptr,a[6]={6.2,62.23,1.0,0.0,55.24,21.09},max;
+	int i=0;
+	ptr=&a[0];
+	max=*ptr;
+
+	printf("Base Address of %u\n",a);
+	printf("Base Address of %6u\n",&a[0]);
+
+	for(i=0; i<6; i++)
+	{
+		printf("Content of a[%d]=%-9.2f",i,*ptr);
+		printf("Address %6u\n",ptr++);
+	}
+	printf("Address of a[0]=%u and ptr=%u\n",&a[0],ptr);
+	ptr=a;//ptr=&a[0] BOTH ARE SAME
+
+	printf("Address of a[0]=%u and ptr=%u\n",&a[0],ptr);
+	i=0;
+	while(i<6)
+	{
+		if(max<*ptr)
+		{
+			max=*ptr;
+		}
+		i++;
+		ptr++;
+	}
+	printf("Maximum is %f",max);
+	getch();
+}

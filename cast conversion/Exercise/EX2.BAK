@@ -1,0 +1,36 @@
+#include<iostream.h>
+#include<conio.h>
+class weight
+{
+	private:
+		long int kg;
+		long int gram;
+	public:
+		void display();
+		void operator =(long int); //Operator Overloading
+};
+void weight::operator =(long int w)
+{
+	cout<<"Operator = Overloaded And Cast Conversion"<<endl;
+	kg=w/1000;
+	gram=w%gram;
+}
+void weight::display()
+{
+	cout<<"Kilogram is:"<<kg<<endl;
+	cout<<"Gram  is:"<<gram<<endl;
+}
+void main()
+{
+	clrscr();
+	weight w1;
+	int weight;
+
+	cout<<"Enter Total Weight:";
+	cin>>weight;
+
+	cout<<"Object W1 is Overload Equal To Operator..."<<endl;
+	w1=weight;
+	w1.display();
+	getch();
+}

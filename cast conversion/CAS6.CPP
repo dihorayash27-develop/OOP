@@ -1,0 +1,93 @@
+#include<conio.h>
+#include<iostream.h>
+#include<math.h>
+class octal;
+class decimal
+{
+	private:
+		long int dec;
+	public:
+		decimal()
+		{
+			dec=0;
+		}
+		decimal(long int x)
+		{
+			dec=x;
+		}
+		operator octal();
+		void out();
+		~decimal()
+		{
+			cout<<"decimal destructor called.."<<endl;
+		}
+};
+class octal
+{
+	private:
+		long int oct;
+	public:
+		octal()
+		{
+			oct=0;
+		}
+		octal(long int x)
+		{
+			oct=x;
+		}
+		operator decimal();
+		void out();
+		~octal()
+		{
+			cout<<"octal destructor called..."<<endl;
+		}
+};
+decimal::operator octal()
+{
+	long int val,sum=0,i=0;
+	while(dec>0)
+	{
+		val=dec%8;
+		sum=sum+val*pow(10,i);
+		i++;
+		dec=dec/8;
+	}
+	return octal(sum);
+}
+void decimal::out()
+{
+	cout<<"decimal value:"<<dec<<endl;
+}
+octal::operator decimal()
+{
+	long int val,sum=0,i=0;
+	while(oct>0)
+	{
+		val=oct%10;
+		sum=sum+val*pow(8,i);
+		i++;
+		oct=oct/10;
+	}
+	return decimal(sum);
+}
+void octal::out()
+{
+	cout<<"octal value:"<<oct<<endl;
+}
+void main()
+{
+	clrscr();
+	decimal d1,d2(100);
+	octal o1,o2(144);
+	cout<<"conversion take place between decimal to octal system"<<endl;
+	d2.out();
+	o1=d2;
+	o1.out();
+	cout<<"conversion take place between octal to decimal system"<<endl;
+	o2.out();
+	d1=o2;
+	d1.out();
+	getch();
+}
+
+

@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
+{
+	clrscr();
+
+	char *ptr1=NULL,*ptr2,*ptr3;//INITIALIZATION
+
+	printf("Enter ptr1:");
+	gets(ptr1);
+
+	printf("Enter ptr2:");
+	gets(ptr2);
+
+	printf("Starting Address of ptr1 is %u\n",ptr1);
+	printf("Starting Address of ptr2 is %u\n",ptr2);
+	printf("Starting Address of ptr3 is %u\n",ptr3);
+
+	printf("Length of ptr1 is:%d store at %u\n",strlen(ptr1),ptr1);
+	//int a[10] strlen(a) i.e address of one-dimential array
+	printf("Length of ptr2 is:%d store at %u\n",strlen(ptr2),ptr2);
+
+	strcpy(ptr3,ptr2);
+	puts(ptr3);
+	printf("String Concatination:\n");
+	strcat(ptr1,"Ram");
+	puts(ptr1);//OVERWERITE THE CONTENT
+
+	printf("\n");
+
+	strcat(ptr3,strcat(ptr1,ptr2));
+	puts(ptr1);
+	puts(ptr3);
+
+	if(strcmp(ptr1,ptr3)<0)
+		printf("ptr3 String is Grater Than the ptr1 string\n");
+	getch();
+}
+

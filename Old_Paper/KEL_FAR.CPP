@@ -1,0 +1,74 @@
+#include<iostream.h>
+#include<conio.h>
+class Kelvin;
+class Fahrenhit{
+	protected:
+		float f;
+	public:
+		Fahrenhit();
+		Fahrenhit(float);
+		void display();
+		operator Kelvin();
+		~Fahrenhit(){
+			cout<<"Destructor called:"<<endl;
+		}
+};
+class Kelvin{
+	protected:
+		float k;
+	public:
+		Kelvin();
+		Kelvin(float);
+		void display();
+		operator Fahrenhit();
+		~Kelvin(){
+			cout<<"Destructor called:"<<endl;
+		}
+};
+Fahrenhit::Fahrenhit(){
+      f = 0.0;
+}
+Fahrenhit::Fahrenhit(float a){
+      f = a;
+}
+Fahrenhit::operator Kelvin(){
+	float temp=0;
+	temp = (f-32)*5/9+273.15;
+	return temp;
+}
+void Fahrenhit::display()
+{
+	cout<<"Fahrenhit value:"<<f<<endl;
+}
+
+Kelvin::Kelvin(){
+       k = 0.0;
+}
+Kelvin::Kelvin(float b){
+	k = b;
+}
+void Kelvin::display()
+{
+	cout<<"K value:"<<k<<endl;
+}
+Kelvin::operator Fahrenhit()
+{
+	float temp;
+	temp = (k-273.15)*9/5+32;
+	return temp;
+}
+void main(){
+	clrscr();
+
+	Fahrenhit f1,f2(3.0);
+	Kelvin k1(3.0),k2;
+
+	f1 = k1;
+	f1.display();
+	k1.display();
+
+	k2 = f2;
+	k2.display();
+	f2.display();
+	getch();
+}
